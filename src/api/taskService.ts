@@ -2,7 +2,7 @@
 import axios from "axios";
 import { Task } from "@/types/task";
 
-const API_URL = "http://localhost:8000"; // ton URL backend
+const API_URL = "https://task-pilot-back-production.up.railway.app/"; // ton URL backend
 
 const axiosInstance = axios.create({
   baseURL: API_URL,

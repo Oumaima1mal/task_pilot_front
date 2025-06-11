@@ -57,7 +57,7 @@ const Notifications = () => {
       const token = localStorage.getItem("access_token")
       if (!token) return
 
-      const response = await fetch("http://localhost:8000/notifications/read-all", {
+      const response = await fetch("https://task-pilot-back-production.up.railway.app/notifications/read-all", {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,

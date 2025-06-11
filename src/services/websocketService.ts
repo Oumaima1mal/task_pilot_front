@@ -32,7 +32,7 @@ export const useWebSocket = () => {
 
     try {
       // Créer une nouvelle connexion WebSocket avec le token JWT
-      const ws = new WebSocket(`ws://localhost:8000/ws?token=${token}`)
+      const ws = new WebSocket(`ws://task-pilot-back-production.up.railway.app/ws?token=${token}`)
 
       ws.onopen = () => {
         console.log("Connexion WebSocket établie")
@@ -110,7 +110,7 @@ export const useWebSocket = () => {
       const token = localStorage.getItem("access_token")
       if (!token) return
 
-      const response = await fetch(`http://localhost:8000/notifications/${notificationId}/read`, {
+      const response = await fetch(`http://task-pilot-back-production.up.railway.app/notifications/${notificationId}/read`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -135,7 +135,7 @@ export const useWebSocket = () => {
       const token = localStorage.getItem("access_token")
       if (!token) return
 
-      const response = await fetch("http://localhost:8000/notifications/", {
+      const response = await fetch("http://task-pilot-back-production.up.railway.app/notifications/", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
