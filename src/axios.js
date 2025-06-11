@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Crée une instance Axios avec une URL de base
 const axiosInstance = axios.create({
-  baseURL: "https://task-pilot-back-production.up.railway.app/api",
+  baseURL: "https://task-pilot-back-production.up.railway.app/",
   headers: {
     "Content-Type": "application/json",
   },
