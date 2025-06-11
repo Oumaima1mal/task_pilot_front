@@ -32,7 +32,7 @@ export const useWebSocket = () => {
 
     try {
       // Créer une nouvelle connexion WebSocket avec le token JWT
-      const ws = new WebSocket(`ws://task-pilot-back-production.up.railway.app/ws?token=${token}`)
+      const ws = new WebSocket(`wss://task-pilot-back-production.up.railway.app/ws?token=${token}`)
 
       ws.onopen = () => {
         console.log("Connexion WebSocket établie")
