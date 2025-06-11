@@ -1,7 +1,7 @@
 // Ce service est adapté à votre système d'authentification existant
 import axios from "axios"
 
-const API_URL = "http://localhost:8000" // Ajustez selon votre configuration
+const API_URL = "https://task-pilot-back-production.up.railway.app" // Ajustez selon votre configuration
 
 // Fonction pour vérifier si l'utilisateur est connecté
 export const isAuthenticated = (): boolean => {
