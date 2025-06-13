@@ -110,7 +110,7 @@ export const useWebSocket = () => {
       const token = localStorage.getItem("access_token")
       if (!token) return
 
-      const response = await fetch(`http://task-pilot-back-production.up.railway.app/notifications/${notificationId}/read`, {
+      const response = await fetch(`https://task-pilot-back-production.up.railway.app/notifications/${notificationId}/read`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -135,7 +135,7 @@ export const useWebSocket = () => {
       const token = localStorage.getItem("access_token")
       if (!token) return
 
-      const response = await fetch("http://task-pilot-back-production.up.railway.app/notifications/", {
+      const response = await fetch("https://task-pilot-back-production.up.railway.app/notifications/", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
