@@ -46,7 +46,7 @@ const CreateTaskForm: React.FC<CreateTaskFormProps> = ({
   isEditing = false,
   groupId,
 }) => {
-  const { addTask, updateTask } = useTaskContext()
+  const { addTask, updateTask , refreshTasks } = useTaskContext()
   const [error, setError] = React.useState<string | null>(null)
   const [isSubmitting, setIsSubmitting] = React.useState(false)
 
