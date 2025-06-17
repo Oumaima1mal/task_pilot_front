@@ -88,6 +88,7 @@ const CreateTaskForm: React.FC<CreateTaskFormProps> = ({
         await updateTask(initialValues.id, taskData)
       } else {
         await addTask(taskData)
+        await refreshTasks()
       }
       onOpenChange(false)
       form.reset()
