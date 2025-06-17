@@ -275,25 +275,27 @@ export function TaskProvider({ children }: TaskProviderProps) {
         setTasks((prevTasks) => prevTasks.map((t) => (t.id === id ? { ...t, completed } : t)))
 
         try {
-          const updatedTask = await taskService.updateTaskStatus(id, completed)
-          setTasks((prevTasks) => prevTasks.map((t) => (t.id === id ? updatedTask : t)))
+  await taskService.updateTaskStatus(id, completed)
 
-          toast({
-            title: completed ? "Tâche terminée" : "Tâche réactivée",
-            description: completed ? "La tâche a été marquée comme terminée" : "La tâche a été réactivée",
-          })
-        } catch (apiError) {
-          console.error("Erreur API lors du changement de statut:", apiError)
+  toast({
+    title: completed ? "Tâche terminée" : "Tâche réactivée",
+    description: completed ? "La tâche a été marquée comme terminée" : "La tâche a été réactivée",
+  })
 
-          // Revenir à l'état précédent
-          setTasks((prevTasks) => prevTasks.map((t) => (t.id === id ? { ...t, completed: !completed } : t)))
+  // ✅ Recharger immédiatement depuis l'API
+  await refreshTasks()
+} catch (apiError) {
+  console.error("Erreur API lors du changement de statut:", apiError)
 
-          toast({
-            title: "Erreur",
-            description: "Impossible de mettre à jour le statut de la tâche",
-            variant: "destructive",
-          })
-        }
+  // Revenir à l'état précédent
+  setTasks((prevTasks) => prevTasks.map((t) => (t.id === id ? { ...t, completed: !completed } : t)))
+
+  toast({
+    title: "Erreur",
+    description: "Impossible de mettre à jour le statut de la tâche",
+    variant: "destructive",
+  })
+}
       } catch (err) {
         console.error("Erreur générale lors du changement de statut:", err)
         toast({
